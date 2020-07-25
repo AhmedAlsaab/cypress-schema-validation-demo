@@ -1,0 +1,32 @@
+{
+  "name": "cypress-demos",
+  "version": "1.0.0",
+  "description": "Cypress-ajv-demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmedAlsaab/cypress-ajv-demo.git"
+  },
+  "keywords": [
+    "Ajv",
+    "Cypress",
+    "API",
+    "Testing"
+  ],
+  "author": "Ahmed Al-Saab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AhmedAlsaab/cypress-ajv-demo/issues"
+  },
+  "homepage": "https://github.com/AhmedAlsaab/cypress-ajv-demo#readme",
+  "dependencies": {
+    "ajv": "^6.12.3",
+    "cypress": "^4.11.0"
+  },
+  "devDependencies": {
+    "cypress-dark": "^1.7.14"
+  }
+}
