@@ -25,8 +25,5 @@
   "dependencies": {
     "ajv": "^6.12.3",
     "cypress": "^4.11.0"
-  },
-  "devDependencies": {
-    "cypress-dark": "^1.7.14"
   }
 }

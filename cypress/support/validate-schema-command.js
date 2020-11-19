@@ -1,33 +1,22 @@
-
 import Ajv from "ajv";
 import { definitionsHelper } from "../schemas/schema-definitions";
 
-const getSchemaError = (getAjvError) => 
-{
-    const index = 0;
-    const propertyName = "dataPath";
-    const errorMessage = "message";
-    const schemaError = `Fieldname: ${getAjvError[index][propertyName]} is invalid. type ${getAjvError[index][errorMessage]}`;
-
-    return cy.wrap(schemaError);
+const getSchemaError = (getAjvError) => {
+  return cy.wrap(
+    `Field: ${getAjvError[0]["dataPath"]} is invalid. Cause: ${getAjvError[0]["message"]}`
+  );
 };
 
-export const validateSchema = (schema, response) => 
-{
-    var ajv = new Ajv();
+export const validateSchema = (schema, response) => {
+  const ajv = new Ajv();
+  const validate = ajv.addSchema(definitionsHelper).compile(schema);
+  const valid = validate(response);
 
-    var validate = ajv.addSchema(definitionsHelper).compile(schema);
-    var valid = validate(response);
-  
-    if (!valid) 
-    {
-        getSchemaError(validate.errors).then((schemaError) => 
-        {
-            throw new Error(schemaError);
-        });
-    } 
-    else 
-    {
-        cy.log("Schema validated!");
-    }
-  };
+  if (!valid) {
+    getSchemaError(validate.errors).then((schemaError) => {
+      throw new Error(schemaError);
+    });
+  } else {
+    cy.log("Schema validated!");
+  }
+};

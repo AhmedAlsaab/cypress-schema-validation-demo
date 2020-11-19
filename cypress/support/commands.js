@@ -1,5 +1,8 @@
+import {
+  getRandomFact,
+  getFactById,
+} from "./animal-facts-api-request-commands";
 
-import { getRandomFact, getFactById  } from "./animal-facts-api-request-commands";
 import { validateSchema } from "./validate-schema-command";
 
 Cypress.Commands.add("getRandomFact", getRandomFact);
